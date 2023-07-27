@@ -1,12 +1,14 @@
 package com.lib.management.system.libmanagementsysproject25thFeb.models;
 
 import java.util.Date;
-
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,33 +26,35 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 public class User {
 	
-	@GeneratedValue(strategy=GenerationType.AUTO )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private int userId;
 	
+
 	private String name;
 	
-	
+	@Column(unique = true, nullable = false)
 	private String email;
 	
-	private String phNum;
+	private String ph;
 	
-	//one 1 user/student can issue Many book (will add limit too later upto 5 books)
-	@OneToMany(mappedBy="user")//check this by changing name of object user in book        
+	@OneToMany(mappedBy = "user")
+	@JsonIgnoreProperties(value = "user")
 	private List<Book> bookList;
 	
-	//do we need transaction in book??
-	//
-	@OneToMany(mappedBy="user")//check this by changing name of object user in book        
+	@OneToMany(mappedBy = "user")
+	@JsonIgnoreProperties(value = "user")
 	private List<Transaction> transactionList;
-	 
+	
 	
 	@CreationTimestamp
 	private Date createdOn;
-	
+
 	@UpdateTimestamp
 	private Date updatedOn;
+	
+	
+
 }

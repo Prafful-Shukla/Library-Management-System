@@ -8,6 +8,8 @@ public class LibManagementSysProject25thFebApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LibManagementSysProject25thFebApplication.class, args);
+	
 	}
 
 }
+   

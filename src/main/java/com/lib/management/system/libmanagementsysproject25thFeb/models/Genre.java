@@ -9,8 +9,8 @@ public enum Genre {
 	HISTORY,
 	PHYSICS,
 	CHEMISTRY,
-	BUISNESS,
+	BUSINESS,
 	MOTIVATIONAL,
 	ACCOUNTS
-	
+
 }
