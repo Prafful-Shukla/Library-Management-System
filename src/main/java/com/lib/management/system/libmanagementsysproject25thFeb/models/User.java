@@ -38,14 +38,14 @@ public class User {
 	@Column(unique = true, nullable = false)
 	private String email;
 	
-	private String ph;
+	private String phNum;
 	
 	@OneToMany(mappedBy = "user")
-	@JsonIgnoreProperties(value = "user")
+	@JsonIgnoreProperties(value = {"user","transcationList"})
 	private List<Book> bookList;
 	
 	@OneToMany(mappedBy = "user")
-	@JsonIgnoreProperties(value = "user")
+	@JsonIgnoreProperties(value = {"user","book"})
 	private List<Transaction> transactionList;
 	
 	

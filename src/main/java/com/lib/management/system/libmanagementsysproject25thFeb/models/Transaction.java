@@ -39,18 +39,18 @@ public class Transaction {
 	
 	@ManyToOne
 	@JoinColumn
-	@JsonIgnoreProperties(value = "transactionList")
+	@JsonIgnoreProperties(value = {"transactionList","bookList"})
 	private User user;
 	
 	
 	@ManyToOne
 	@JoinColumn
-	@JsonIgnoreProperties(value = "transactionList")
+	@JsonIgnoreProperties(value = {"transactionList","user"})
 	private Book book;
 	
 	
 	@Enumerated(value = EnumType.STRING)
-	private TransactionType TransactionType;
+	private TransactionType transactionType;
 	
 	@Enumerated(value = EnumType.STRING)
 	private TransactionStatus TransactionStatus;

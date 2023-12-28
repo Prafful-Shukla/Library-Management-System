@@ -52,7 +52,7 @@ public class Book {
 
 	private int cost;
 	
-	private int isbn;
+	//private int isbn;
 	
 	@CreationTimestamp
 	private Date createdOn;
@@ -60,6 +60,7 @@ public class Book {
 	@UpdateTimestamp
 	private Date updatedOn;
 	
+	//WHY TO HAVE author name we can have entire author
 	@ManyToOne
 	@JoinColumn
 	@JsonIgnoreProperties(value = "bookList")
@@ -68,14 +69,14 @@ public class Book {
 	
 	@ManyToOne
 	@JoinColumn
-	@JsonIgnoreProperties(value = "bookList")
+	@JsonIgnoreProperties(value = {"bookList","transactionList"})
 	private User user;
 	
 	
-	// lets add transcation field later
+	//
 	
 	@OneToMany(mappedBy = "book")
-	@JsonIgnoreProperties(value = "book")
+	@JsonIgnoreProperties(value = {"book","user"})
 	private List<Transaction> transcationList;
 	
 	

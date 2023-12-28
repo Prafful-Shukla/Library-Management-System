@@ -30,7 +30,7 @@ public class CreateRequestStudent {
 	
 	
 	public User to() {
-		return User.builder().name(name).ph(phNum).email(email).build();
+		return User.builder().name(name).phNum(phNum).email(email).build();
 		
 	}
 
